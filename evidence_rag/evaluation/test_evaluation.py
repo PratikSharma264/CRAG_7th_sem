@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from evaluation import (
+from evidence_rag.evaluation.retrieval_metrics import (
     evaluate_retrieval,
     normalize_text,
     overlap_score,
@@ -13,7 +13,7 @@ from evaluation import (
     tokenize,
 )
 
-REPORT_PATH = Path(__file__).with_name("report.json")
+REPORT_PATH = Path(__file__).resolve().parents[1] / "report" / "report.json"
 
 
 @pytest.mark.parametrize(
@@ -172,6 +172,7 @@ def build_evaluation_report():
 
 def write_report_json():
     report = build_evaluation_report()
+    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with REPORT_PATH.open("w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     return str(REPORT_PATH)

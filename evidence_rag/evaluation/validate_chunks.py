@@ -34,11 +34,12 @@ from datetime import datetime
 # CONFIG
 # ==========================================
 
-CHROMA_DB_PATH = "./vector_db"
+PACKAGE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CHROMA_DB_PATH = os.path.join(PACKAGE_DIR, "vector_db")
 COLLECTION_NAME = "research_abstracts"
 MEDCPT_MODEL = "ncbi/MedCPT-Article-Encoder"
 MAX_TOKENS = 512
-OUTPUT_DIR = "."
+OUTPUT_DIR = os.path.join(PACKAGE_DIR, "report")
 CHART_FILENAME = "token_length_distribution.png"
 REPORT_FILENAME = "chunk_validation_report.md"
 

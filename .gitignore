@@ -4,24 +4,17 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-.venv/
 .pytest_cache/
 .mypy_cache/
 .coverage
 .coverage.*
 htmlcov/
-
-# Generated evaluation output
-report.json
-
-# Local project artifacts
-vector_db/
-knowledge_base/
-*.sqlite3
-*.png
 *.log
-
-# OS/editor files
+report.json
+*.png
+*.sqlite3
+!evidence_rag/vector_db/chroma.sqlite3
+!evidence_rag/report/token_length_distribution.png
 .DS_Store
 Thumbs.db
 .vscode/

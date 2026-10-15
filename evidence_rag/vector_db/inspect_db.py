@@ -8,6 +8,7 @@ and embedding details from the
 
 import sys
 import io
+from pathlib import Path
 sys.stdout = io.TextIOWrapper(
     sys.stdout.buffer, encoding="utf-8"
 )
@@ -27,9 +28,7 @@ def inspect_database():
     # Connect to persistent ChromaDB
     # ------------------------------------------
 
-    client = chromadb.PersistentClient(
-        path="./vector_db"
-    )
+    client = chromadb.PersistentClient(path=str(Path(__file__).resolve().parent))
 
 
     # ------------------------------------------

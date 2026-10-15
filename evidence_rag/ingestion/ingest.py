@@ -77,9 +77,8 @@ def generate_embedding(text, title=""):
 # STEP 3: Connect to ChromaDB
 # ==========================================
 
-client = chromadb.PersistentClient(
-    path="./vector_db"
-)
+PACKAGE_DIR = Path(__file__).resolve().parents[1]
+client = chromadb.PersistentClient(path=str(PACKAGE_DIR / "vector_db"))
 
 print("ChromaDB connected successfully!")
 
@@ -112,7 +111,7 @@ print("Collection created successfully!")
 # STEP 5: Find TXT Files
 # ==========================================
 
-KNOWLEDGE_BASE = Path("knowledge_base")
+KNOWLEDGE_BASE = PACKAGE_DIR / "knowledge_base"
 
 # Find all .txt files
 txt_files = list(

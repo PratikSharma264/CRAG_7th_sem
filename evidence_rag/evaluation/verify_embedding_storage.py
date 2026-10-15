@@ -73,7 +73,7 @@ def verify():
 
     print("\n[Check 2] ChromaDB persistence...")
 
-    db_path = "./vector_db"
+    db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "vector_db")
 
     if os.path.isdir(db_path):
         passed.append(

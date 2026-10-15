@@ -50,9 +50,8 @@ print("Query Encoder loaded successfully!\n")
 # STEP 2: Connect to ChromaDB
 # ==========================================
 
-client = chromadb.PersistentClient(
-    path="./vector_db"
-)
+PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
+client = chromadb.PersistentClient(path=os.path.join(PACKAGE_DIR, "vector_db"))
 
 collection = client.get_collection(
     name="research_abstracts"
